@@ -770,7 +770,7 @@ public abstract class BaseHttpSourceConfig extends ReferencePluginConfig {
         new URI(getUrl().replaceAll(PAGINATION_INDEX_PLACEHOLDER_REGEX, "0"));
 
         // Validate HTTP Error Handling Map
-        if (!containsMacro(PROPERTY_HTTP_ERROR_HANDLING)) {
+        if (!containsMacro(PROPERTY_URL) && !containsMacro(PROPERTY_HTTP_ERROR_HANDLING)) {
           List<HttpErrorHandlerEntity> httpErrorsHandlingEntries = getHttpErrorHandlingEntries();
           boolean supportsSkippingPages = PaginationIteratorFactory
             .createInstance(this, null).supportsSkippingPages();
